@@ -1,4 +1,5 @@
 import torch
+import json
 import inner_embedding_network
 from torch_geometric.data import Data
 import pickle
@@ -13,8 +14,8 @@ with open("dep_data.json") as fp:
 with open("new_db.json") as fp:
     new_db = json.load(fp)
 
-with open("polished_dict.json") as f:
-    p_d = json.load(f)
+#with open("polished_dict.json") as f:
+#    p_d = json.load(f)
 
 full_db = {}
 count = 0

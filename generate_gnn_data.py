@@ -320,6 +320,17 @@ torch_graph_dict = {}
 for goal in tqdm(polished_goals):
     torch_graph_dict[goal] = graph_to_torch(goal_to_graph(goal))
 
+one_hot_dict = {}
+
+enc_nodes = whole_data[3]
+
+for key in tqdm(torch_graph_dict):
+    one_hot_dict[key] = enc_nodes.transform([[key]])
+
+with open("one_hot_dict.pk", "wb") as f:
+    pickle.dump(one_hot_dict, f)
+
+
 with open("torch_graph_dict.pk", "wb") as f:
     pickle.dump(torch_graph_dict, f)
 
